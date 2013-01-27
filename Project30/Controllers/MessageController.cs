@@ -11,7 +11,7 @@ namespace Project30.Controllers
 {
     public class MessageController : Controller
     {
-        private MessageEntities db = new MessageEntities();
+        private MessageContext db = new MessageContext();
 
         //
         // GET: /Message/
