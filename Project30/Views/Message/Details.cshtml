@@ -36,6 +36,11 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.CreationDate)
     </div>
+
+     <div class="display-field">
+      User:  @Html.DisplayFor(model => model.UserProfile.UserName)
+    </div>
+
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.MessageId }) |
