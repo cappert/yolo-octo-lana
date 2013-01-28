@@ -9,6 +9,7 @@ using Project30.Models;
 
 namespace Project30.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class MessageController : Controller
     {
         private MessageContext db = new MessageContext();
