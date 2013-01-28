@@ -26,10 +26,7 @@ namespace Project30.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int MessageId { get; set; }
-        /// <summary>
-        /// foreign key is virtual
-        /// </summary>
-        // public virtual UserProfile UserProfile { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string Type { get; set; }
