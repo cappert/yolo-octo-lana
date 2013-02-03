@@ -29,7 +29,10 @@ namespace Project30.Models
         /// <summary>
         /// foreign key is virtual
         /// </summary>
-        // public virtual UserProfile UserProfile { get; set; }
+        // Foreign key to UserProfile
+        // [ForeignKey("UserProfile")]
+        // public string UserProfileID { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string Type { get; set; }
