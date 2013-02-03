@@ -118,8 +118,24 @@ namespace Project30.Controllers
         // get
         [Authorize]
          public ActionResult Add() {
-             return View();
+  
+            return View();
          }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult Add(Message message)
+        {
+            message.CreationDate = DateTime.Today;
+            if (ModelState.IsValid)
+            {
+                db.Messages.Add(message);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(message);
+        }
 
         protected override void Dispose(bool disposing)
         {
