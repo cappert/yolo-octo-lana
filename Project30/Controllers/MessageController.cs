@@ -130,7 +130,7 @@ namespace Project30.Controllers
             message.CreationDate = DateTime.Today;
 
           // @todo: populate message.userprofile using the logged in user
-           
+          //  message.UserProfile.UserId = User.Identity.
             if (ModelState.IsValid)
             {
                 db.Messages.Add(message);
