@@ -131,10 +131,22 @@ namespace Project30.Controllers
             {
                 db.Messages.Add(message);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyMessages", new { newPost = "true" });
             }
 
             return View(message);
+        }
+
+        [Authorize]
+        public ActionResult MyMessages(bool newPost = false) {
+
+            ViewData["newPost"] = newPost;
+
+            // @todo: update query to only return messages from the logged in users.
+            List<Message> userMessages =  db.Messages.ToList();
+
+
+            return View(userMessages);
         }
 
         protected override void Dispose(bool disposing)

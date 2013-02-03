@@ -302,6 +302,7 @@
     <Content Include="Views\Message\Edit.cshtml" />
     <Content Include="Views\Message\Delete.cshtml" />
     <Content Include="Views\Message\Add.cshtml" />
+    <Content Include="Views\Message\MyMessages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
