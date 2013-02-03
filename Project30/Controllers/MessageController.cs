@@ -9,14 +9,14 @@ using Project30.Models;
 
 namespace Project30.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+   
     public class MessageController : Controller
     {
         private MessageContext db = new MessageContext();
 
         //
         // GET: /Message/
-
+         [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             return View(db.Messages.ToList());
@@ -24,7 +24,7 @@ namespace Project30.Controllers
 
         //
         // GET: /Message/Details/5
-
+         [Authorize(Roles = "Administrator")]
         public ActionResult Details(int id = 0)
         {
             Message message = db.Messages.Find(id);
@@ -37,7 +37,7 @@ namespace Project30.Controllers
 
         //
         // GET: /Message/Create
-
+         [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +47,7 @@ namespace Project30.Controllers
         // POST: /Message/Create
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create(Message message)
         {
             if (ModelState.IsValid)
@@ -61,7 +62,7 @@ namespace Project30.Controllers
 
         //
         // GET: /Message/Edit/5
-
+         [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id = 0)
         {
             Message message = db.Messages.Find(id);
@@ -76,6 +77,7 @@ namespace Project30.Controllers
         // POST: /Message/Edit/5
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(Message message)
         {
             if (ModelState.IsValid)
@@ -89,7 +91,7 @@ namespace Project30.Controllers
 
         //
         // GET: /Message/Delete/5
-
+         [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id = 0)
         {
             Message message = db.Messages.Find(id);
@@ -102,7 +104,7 @@ namespace Project30.Controllers
 
         //
         // POST: /Message/Delete/5
-
+         [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -111,6 +113,12 @@ namespace Project30.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        // allow non admins to add a message
+        // get
+         public ActionResult Add() {
+             return View();
+         }
 
         protected override void Dispose(bool disposing)
         {
