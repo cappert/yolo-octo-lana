@@ -46,3 +46,6 @@ _ReSharper*/
 
 # NCrunch
 *ncrunch*
+
+# Database files
+App_Data/
