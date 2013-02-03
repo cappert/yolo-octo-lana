@@ -116,6 +116,7 @@ namespace Project30.Controllers
 
         // allow non admins to add a message
         // get
+        [Authorize]
          public ActionResult Add() {
              return View();
          }
