@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Project30.Models;
+using System.Web.Security;
 
 namespace Project30.Controllers
 {
@@ -127,6 +128,9 @@ namespace Project30.Controllers
         public ActionResult Add(Message message)
         {
             message.CreationDate = DateTime.Today;
+
+          // @todo: populate message.userprofile using the logged in user
+           
             if (ModelState.IsValid)
             {
                 db.Messages.Add(message);
