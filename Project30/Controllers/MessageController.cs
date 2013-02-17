@@ -127,7 +127,7 @@ namespace Project30.Controllers
         [Authorize]
         public ActionResult Add(Message message)
         {
-            message.CreationDate = DateTime.Today;
+            message.CreationDate = DateTime.Now;
 
           // @todo: populate message.userprofile using the logged in user
           //  message.UserProfile.UserId = User.Identity.
