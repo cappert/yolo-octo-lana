@@ -129,10 +129,13 @@ namespace Project30.Controllers
         {
             message.CreationDate = DateTime.Now;
 
-          // @todo: populate message.userprofile using the logged in user
-          //  message.UserProfile.UserId = User.Identity.
-            if (ModelState.IsValid)
+      
+            UsersContext usersContext = new UsersContext();
+            UserProfile user = usersContext.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == User.Identity.Name.ToLower());
+   
+            if (ModelState.IsValid && user != null)
             {
+                message.UserProfile = user;
                 db.Messages.Add(message);
                 db.SaveChanges();
                 return RedirectToAction("MyMessages", new { newPost = "true" });
